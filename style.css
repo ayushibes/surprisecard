@@ -1,0 +1,221 @@
+:root{
+  --primary: #fff;
+  --bg-color: rgb(16, 110, 126);
+  /* --bg-envelope-color: #f5edd1; */
+  --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7;
+  --shadow-color: rgba(64, 115, 197, 0.2);
+  --txt-color: #6c6363;
+  --heart-color: rgb(248, 25, 36);
+}
+body{
+  background-image: url("https://storage.florist.ru/f/get/iflorist/product/O/V/_dPZ3A4SWxNeDhsZ2pKd0RLVFUyVHprYnliVjdxSGo1eE42bFVlOE9FZTFOYnJYbDNoRktYZStLQUs2OG13a2dZM1o2YUtsazZnNXpDb0U3cmtyVG5lMzQ2RzJTRFVTMld3V1M3WHBXVGVrTHJRUkZWWEJkWXZodWkvTk05TFp3Um1KaVhoQlpHbzZBNE5KdG10T0pBPT0=/800x800/img.jpg");
+  height:80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background: var(--bg-color); */
+ 
+}
+.container > .envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 0px var(--shadow-color);
+  /* left: 100px; */
+}
+.envelope-wrapper > .envelope {
+  position: relative;
+  width: 366px;
+  height: 280px;
+  left: 100px;
+}
+.envelope-wrapper > .envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 180px solid var(--envelope-tab);
+  border-right: 250px solid transparent;
+  border-left: 250px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease-in-out 0.7s;
+  left: 200px;
+  
+}
+.envelope-wrapper > .envelope::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 0px;
+  height: 0px;
+  border-top: 180px solid transparent;
+  border-right: 250px solid var(--envelope-cover);
+  border-bottom: 200px solid var(--envelope-cover);
+  border-left: 250px solid var(--envelope-cover);
+  box-shadow: 10px 15px 10px ;
+  left: 200px;
+}
+.envelope > .letter {
+  position: absolute;
+  right: 20%;
+  bottom: 0;
+  width: 80%;
+  height: 80%;
+  background: var(--primary);
+  text-align: center;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 0 5px var(--shadow-color);
+  padding: 20px 10px;
+  box-shadow: 10px 15px 10px ;
+  left: 297px;
+}
+
+.envelope > .letter > .text {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: var(--txt-color);
+  text-align: left;
+  font-size: 10px;
+  text-shadow: 4px 3px 2px #aca6a6;
+  font-family: 'Times New Roman', Times, serif;
+  left: 100px;
+
+}
+.heart {
+  position:relative;
+  top: -115px;
+  left: 150%;
+  right: 300%;
+  bottom: 250%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -20%) rotate(45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
+  
+}
+.heart:before, 
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
+}
+.heart:before {
+  top: -7.5px;
+}
+.heart:after {
+  right: 7.5px;
+}
+.flap > .envelope:before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+.flap > .envelope > .letter {
+  bottom: 130px;
+  transform: scale(1.5);
+  transition-delay: 1s;
+}
+.flap > .heart {
+  transform: rotate(90deg);
+  transition-delay: 0.4s;
+}
+
+
+
+
+
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+body{
+  /* height: 100vh; */
+  /* border: 5px solid black; */
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+}
+.cont{
+  perspective: 1000px;
+
+}
+.card{
+  width: 280px;
+  height: 360px;
+  position: relative;
+  top: -520px;
+  display:flex;
+  left: 130px;
+  transition: 2s;
+  transform-style: preserve-3d;
+  justify-content: center;
+  
+}
+.card:hover{
+  transform: rotateY(180deg);
+}
+/* .block{
+  position: absolute;
+  top: 100px;
+  right: 200px;
+
+} */
+.outside, .inside{    
+  width: 100%;
+  height: 110%;
+  border-radius: 10px;
+  text-align:center;
+  padding: 1.5 rem;
+  backface-visibility: hidden;
+
+}
+.outside{
+  /* background-color: aqua; */
+  box-shadow: inset 0 50px 100px rgba(185, 132, 132, 0.5);
+  position: absolute;
+  
+  /* transform: rotateY(180deg); */
+
+}
+.outside h1{
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgb(43, 26, 26);
+  margin-bottom: 30px;
+  text-align: center;
+}
+.inside{
+  /* background-color: yellow; */
+  box-shadow: inset 0 50px 100px rgba(181, 123, 123, 0.5);
+  transform: rotateY(180deg);
+ 
+}
+.inside h3{
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 120px;
+ text-indent: 50px;
+}
+
+img{
+  height: 200px;
+  top: 100px;
+}
